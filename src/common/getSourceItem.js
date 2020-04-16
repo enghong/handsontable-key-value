@@ -11,6 +11,10 @@ function _getSourceItem(items, keyProperty, keyValue) {
   const sourceItem = items.find((item) => {
     const key = item[keyProperty];
 
+    if (keyValue == null || keyValue == '') {
+      return key === keyValue;
+    }
+
     let castedKeyValue = keyValue;
 
     // HoT will sometimes cast the value to string,
