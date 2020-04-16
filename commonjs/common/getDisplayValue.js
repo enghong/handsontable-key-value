@@ -1,0 +1,26 @@
+"use strict";
+
+exports.__esModule = true;
+exports.default = void 0;
+
+var _getSourceItem = _interopRequireDefault(require("./getSourceItem"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/**
+ * Retrieves asynchronously the display value corresponding to a key from the source items.
+ *
+ * @param {Object[]|Function} source List of source items or function returning source items asynchronously.
+ * @param {String} keyProperty Name of the key property on a source item.
+ * @param {String} valueProperty Name of the value property on a source item.
+ * @param {String} keyValue Key of the source item we want to retrieve the display value.
+ * @param {Function} callback Callback called when the value lookup is done.
+ */
+function getDisplayValue(source, keyProperty, valueProperty, keyValue, callback) {
+  _getSourceItem.default.call(this, source, keyProperty, keyValue, function (item) {
+    callback(item ? item[valueProperty] : null);
+  });
+}
+
+var _default = getDisplayValue;
+exports.default = _default;
